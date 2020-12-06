@@ -49,11 +49,7 @@ class App extends React.Component {
 						exact
 						path="/signin"
 						render={() =>
-							this.props.currentUser ? (
-								<Redirect to="/"></Redirect>
-							) : (
-								<SignInAndSignUpPage></SignInAndSignUpPage>
-							)
+							this.props.currentUser ? <Redirect to="/"></Redirect> : <SignInAndSignUpPage />
 						}
 					/>
 				</Switch>
@@ -62,7 +58,7 @@ class App extends React.Component {
 	}
 }
 const mapStateToProps = createStructuredSelector({
-	currentUser: setCurrentUser,
+	currentUser: selectCurrentUser,
 });
 const mapDispatchToProps = (dispatch) => ({
 	setCurrentUser: (user) => dispatch(setCurrentUser(user)),
